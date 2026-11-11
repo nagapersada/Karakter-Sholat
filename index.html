@@ -12,7 +12,6 @@ html,body{height:100%;background:var(--ink);overscroll-behavior:none}
 body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;color:var(--cream);overflow:hidden;-webkit-font-smoothing:antialiased}
 .hidden{display:none!important}
 .page{height:100dvh;height:100svh;display:flex;flex-direction:column;width:100%;max-width:100vw;overflow:hidden}
-/* ===== PEMBUKA - BERSIH & ELEGAN ===== */
 #landing{position:relative;justify-content:flex-end;overflow:hidden;background:#0A2E23}
 #landing img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 #landing::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 0%,rgba(6,26,19,.32) 42%,rgba(6,26,19,.97) 76%)}
@@ -26,7 +25,6 @@ body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;color:va
 .btn-masuk{width:100%;padding:16px;border:none;border-radius:999px;background:linear-gradient(135deg,#EED49A,#C89A3D);color:#1A1200;font-weight:800;font-size:15px;cursor:pointer;margin-top:18px;box-shadow:0 12px 28px rgba(212,175,106,.32)}
 .btn-masuk:active{transform:scale(.98)}
 .note{font-size:11px;color:#B9B29F;margin-top:12px}
-/* ===== DAFTAR ISI - ELEGAN & PRESISI ===== */
 #daftarPage{background:linear-gradient(180deg,#071B14,#061A13);padding:calc(env(safe-area-inset-top) + 16px) 20px calc(env(safe-area-inset-bottom) + 14px)}
 .di-head{padding:0 0 14px;border-bottom:1px solid rgba(212,175,106,.25);display:flex;justify-content:space-between;align-items:center;gap:12px}
 .di-head b{font-family:'Playfair Display',serif;font-size:22px;line-height:1.1}.di-head b span{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;letter-spacing:.22em;color:var(--gold);font-weight:700;margin-top:4px}
@@ -39,7 +37,6 @@ body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;color:va
 .di-text span{display:block;font-size:14px;font-weight:700;line-height:1.35;margin-top:2px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .di-foot{padding-top:12px}
 .btn-back{width:100%;padding:13px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.06);color:#fff;font-weight:700;font-size:13px}
-/* ===== UTAMA - FULLSCREEN ===== */
 #app{background:var(--ink)}
 header{flex-shrink:0;height:56px;padding:calc(env(safe-area-inset-top) + 6px) 16px 6px;display:flex;justify-content:space-between;align-items:center;gap:10px}
 .h-left{display:flex;align-items:center;gap:10px;min-width:0;flex:1}
@@ -59,8 +56,14 @@ h2{font-size:clamp(23px,6.2vw,38px);line-height:1.12;font-weight:800;letter-spac
 .naskah-box{margin-top:12px;background:rgba(0,0,0,.48);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);border-radius:14px;overflow:hidden}
 .naskah-head{padding:11px 13px;display:flex;justify-content:space-between;font-size:13px;font-weight:700}.naskah-head span:last-child{color:var(--gold2);font-size:11px}
 .naskah-body{display:none;padding:0 13px 13px;font-size:12.5px;line-height:1.75;color:#EDE6D3;max-height:32vh;overflow-y:auto;white-space:pre-line}.naskah-box.open .naskah-body{display:block}
-.footer{flex-shrink:0;background:var(--ink);padding:10px 14px calc(env(safe-area-inset-bottom) + 12px)}
-.audio-progress{height:3px;background:rgba(255,255,255,.12);border-radius:999px;overflow:hidden;margin:0 2px 10px}.audio-progress i{display:block;height:100%;background:var(--gold2);width:0%}
+.footer{flex-shrink:0;background:var(--ink);padding:6px 14px calc(env(safe-area-inset-bottom) + 12px)}
+/* BAR AUDIO BISA DIGESER */
+.audio-wrap{padding:8px 2px 10px;cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none}
+.audio-progress{height:6px;background:rgba(255,255,255,.16);border-radius:999px;overflow:visible;position:relative}
+.audio-progress i{display:block;height:100%;background:var(--gold2);width:0%;border-radius:999px;position:relative}
+.audio-progress i::after{content:"";position:absolute;right:-7px;top:50%;transform:translateY(-50%);width:14px;height:14px;background:#fff;border:2px solid var(--gold);border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.4);opacity:0;transition:opacity .15s}
+.audio-wrap:active .audio-progress i::after,.audio-wrap.seeking .audio-progress i::after{opacity:1}
+.audio-time{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:6px;font-variant-numeric:tabular-nums}
 .dots{display:flex;gap:5px;justify-content:center;margin-bottom:10px}.dot{width:6px;height:6px;border-radius:999px;background:rgba(255,255,255,.25);transition:.25s}.dot.on{background:var(--gold);width:18px}
 .controls{display:flex;align-items:center;gap:10px;max-width:720px;margin:0 auto}
 .progress{flex:1;height:5px;background:rgba(255,255,255,.14);border-radius:999px;overflow:hidden}.bar{height:100%;background:var(--gold);transition:width .3s}
@@ -75,7 +78,7 @@ h2{font-size:clamp(23px,6.2vw,38px);line-height:1.12;font-weight:800;letter-spac
   .slide::after{background:linear-gradient(90deg,rgba(0,0,0,.05) 40%,rgba(6,26,19,.94) 78%)}
   .content{left:auto;width:46%;bottom:auto;top:50%;transform:translateY(-50%);padding:0 20px}
   h2{font-size:22px}.arab{font-size:44px}.naskah-body{max-height:22vh}
-  .footer{padding:8px 14px calc(env(safe-area-inset-bottom) + 8px)}.dots{margin-bottom:6px}
+  .footer{padding:6px 14px calc(env(safe-area-inset-bottom) + 8px)}.dots{margin-bottom:6px}
 }
 @media (min-width:768px){
   .content{padding:28px 32px} h2{font-size:38px}
@@ -114,7 +117,10 @@ h2{font-size:clamp(23px,6.2vw,38px);line-height:1.12;font-weight:800;letter-spac
   </header>
   <div class="stage" id="stage"></div>
   <div class="footer">
-    <div class="audio-progress"><i id="audioBar"></i></div>
+    <div class="audio-wrap" id="audioWrap">
+      <div class="audio-progress"><i id="audioBar"></i></div>
+      <div class="audio-time"><span id="curTime">0:00</span><span id="durTime">0:00</span></div>
+    </div>
     <div class="dots" id="dots"></div>
     <div class="controls">
       <button class="btn btn-prev" onclick="go(-1)">←</button>
@@ -292,8 +298,8 @@ Terima kasih atas perhatian Saudaraku semua. Saya Deka Sonjaya, mohon maaf atas 
 
 Wassalamu'alaikum warahmatullahi wabarakatuh.`}
 ];
-var cur=0, userPaused=false;
-var stage=document.getElementById('stage'), dots=document.getElementById('dots'), audio=document.getElementById('audio'), playBtn=document.getElementById('playBtn');
+var cur=0, userPaused=false, isSeeking=false;
+var stage=document.getElementById('stage'), dots=document.getElementById('dots'), audio=document.getElementById('audio'), playBtn=document.getElementById('playBtn'), audioWrap=document.getElementById('audioWrap'), audioBar=document.getElementById('audioBar');
 for(var i=0;i<DATA.length;i++){
   var el=document.createElement('div'); el.className='slide';
   var arab = i==5 ? '<div class="arab">سَلَام</div>' : '';
@@ -304,6 +310,7 @@ for(var i=0;i<DATA.length;i++){
   di.innerHTML='<img class="di-thumb" src="'+DATA[i].bg+'" onerror="this.style.display=\'none\'"><div class="di-text"><small>SLIDE '+(i+1)+'</small><span>'+DATA[i].title+'</span></div><span>›</span>';
   document.getElementById('diList').appendChild(di);
 }
+function fmt(s){ if(!isFinite(s)) return '0:00'; s=Math.floor(s); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); }
 function show(n){
   cur=(n+DATA.length)%DATA.length;
   var slides=document.querySelectorAll('.slide'); for(var i=0;i<slides.length;i++){ slides[i].classList.toggle('active', i==cur); }
@@ -311,6 +318,7 @@ function show(n){
   document.getElementById('bar').style.width=((cur+1)/DATA.length*100)+'%';
   document.getElementById('cur2').textContent=cur+1;
   audio.src='slide'+(cur+1)+'.mp3';
+  document.getElementById('curTime').textContent='0:00'; document.getElementById('durTime').textContent='0:00'; audioBar.style.width='0%';
   if(!userPaused){ audio.play().catch(function(){}); }
 }
 function go(d){ userPaused=false; playBtn.textContent='⏸️'; show(cur+d); }
@@ -319,7 +327,28 @@ function togglePlay(){
   else{ audio.pause(); userPaused=true; playBtn.textContent='▶️'; }
 }
 audio.addEventListener('ended', function(){ if(cur < DATA.length-1){ show(cur+1); } });
-audio.addEventListener('timeupdate', function(){ if(audio.duration) document.getElementById('audioBar').style.width=(audio.currentTime/audio.duration*100)+'%'; });
+audio.addEventListener('loadedmetadata', function(){ document.getElementById('durTime').textContent=fmt(audio.duration); });
+audio.addEventListener('timeupdate', function(){ if(isSeeking) return; if(audio.duration){ audioBar.style.width=(audio.currentTime/audio.duration*100)+'%'; document.getElementById('curTime').textContent=fmt(audio.currentTime); document.getElementById('durTime').textContent=fmt(audio.duration); } });
+// SEEK - GESER BAR AUDIO
+function seekFromEvent(e){
+  var rect=audioWrap.querySelector('.audio-progress').getBoundingClientRect();
+  var x = (e.clientX!==undefined?e.clientX:(e.touches&&e.touches[0]?e.touches[0].clientX:0)) - rect.left;
+  var ratio=Math.max(0,Math.min(1,x/rect.width));
+  audioBar.style.width=(ratio*100)+'%';
+  if(audio.duration){ document.getElementById('curTime').textContent=fmt(ratio*audio.duration); }
+  return ratio;
+}
+audioWrap.addEventListener('pointerdown', function(e){ isSeeking=true; audioWrap.classList.add('seeking'); var r=seekFromEvent(e); audioWrap.setPointerCapture(e.pointerId); });
+audioWrap.addEventListener('pointermove', function(e){ if(!isSeeking) return; seekFromEvent(e); });
+function endSeek(e){
+  if(!isSeeking) return;
+  var r=seekFromEvent(e);
+  if(audio.duration){ audio.currentTime=r*audio.duration; }
+  isSeeking=false; audioWrap.classList.remove('seeking');
+  if(!userPaused){ audio.play().catch(function(){}); }
+}
+audioWrap.addEventListener('pointerup', endSeek);
+audioWrap.addEventListener('pointercancel', function(){ isSeeking=false; audioWrap.classList.remove('seeking'); });
 var sx=0; stage.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
 stage.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx; if(dx<-50)go(1); if(dx>50)go(-1)},{passive:true});
 function sembunyikanSemua(){ document.getElementById('landing').classList.add('hidden'); document.getElementById('daftarPage').classList.add('hidden'); document.getElementById('app').classList.add('hidden'); }
