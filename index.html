@@ -23,7 +23,6 @@ body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;color:va
 .divider{width:44px;height:2px;background:var(--gold);margin:16px auto}
 .motivasi{font-size:14px;line-height:1.65;font-style:italic;color:#F5EDD6}.motivasi b{color:var(--gold2);font-style:normal}
 .btn-masuk{width:100%;padding:16px;border:none;border-radius:999px;background:linear-gradient(135deg,#EED49A,#C89A3D);color:#1A1200;font-weight:800;font-size:15px;cursor:pointer;margin-top:18px;box-shadow:0 12px 28px rgba(212,175,106,.32)}
-.btn-masuk:active{transform:scale(.98)}
 .note{font-size:11px;color:#B9B29F;margin-top:12px}
 #daftarPage{background:linear-gradient(180deg,#071B14,#061A13);padding:calc(env(safe-area-inset-top) + 16px) 20px calc(env(safe-area-inset-bottom) + 14px)}
 .di-head{padding:0 0 14px;border-bottom:1px solid rgba(212,175,106,.25);display:flex;justify-content:space-between;align-items:center;gap:12px}
@@ -44,24 +43,25 @@ header{flex-shrink:0;height:56px;padding:calc(env(safe-area-inset-top) + 6px) 16
 .h-title{font-size:12.5px;letter-spacing:.13em;font-weight:800;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .h-title span{display:block;font-size:9.5px;letter-spacing:.22em;color:var(--gold);font-weight:600}
 .h-btn{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(212,175,106,.45);display:grid;place-items:center;color:#fff;font-size:16px;flex-shrink:0}
-.stage{flex:1;min-height:0;position:relative;overflow:hidden;background:linear-gradient(160deg,#0A2E23,#123F30)}
-.slide{position:absolute;inset:0;display:none}.slide.active{display:block;animation:fade .3s ease}
+.stage{flex:1;min-height:0;position:relative;overflow:hidden;background:#061A13}
+.slide{position:absolute;inset:0;display:none}.slide.active{display:flex;flex-direction:column;animation:fade .3s ease}
 @keyframes fade{from{opacity:0}to{opacity:1}}
-.slide img.foto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;background:#0A2E23}
-.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.02) 30%,rgba(6,26,19,.90) 78%);pointer-events:none}
-.content{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:20px;max-width:720px}
+/* ===== POTRAIT: GAMBAR UTUH, TIDAK KEPOTONG ===== */
+.slide .foto-wrap{position:relative;width:100%;height:52%;flex-shrink:0;background:#000;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.slide .foto-wrap img.bg-blur{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(18px) brightness(.5);transform:scale(1.2)}
+.slide img.foto{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;object-position:center;background:transparent}
+.content{flex:1;min-height:0;overflow-y:auto;padding:18px 20px 14px;background:linear-gradient(180deg,#0A2E23,#061A13)}
 .kicker{font-size:10.5px;letter-spacing:.24em;color:var(--gold2);font-weight:700;margin-bottom:8px}
-h2{font-size:clamp(23px,6.2vw,38px);line-height:1.12;font-weight:800;letter-spacing:-.01em}
-.arab{font-family:'Amiri',serif;font-size:clamp(46px,11vw,82px);color:var(--gold2);line-height:1;margin-top:6px}
-.naskah-box{margin-top:12px;background:rgba(0,0,0,.48);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);border-radius:14px;overflow:hidden}
+h2{font-size:clamp(22px,6vw,30px);line-height:1.15;font-weight:800}
+.arab{font-family:'Amiri',serif;font-size:clamp(44px,11vw,68px);color:var(--gold2);line-height:1;margin-top:6px}
+.naskah-box{margin-top:12px;background:rgba(0,0,0,.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);border-radius:14px;overflow:hidden}
 .naskah-head{padding:11px 13px;display:flex;justify-content:space-between;font-size:13px;font-weight:700}.naskah-head span:last-child{color:var(--gold2);font-size:11px}
 .naskah-body{display:none;padding:0 13px 13px;font-size:12.5px;line-height:1.75;color:#EDE6D3;max-height:32vh;overflow-y:auto;white-space:pre-line}.naskah-box.open .naskah-body{display:block}
 .footer{flex-shrink:0;background:var(--ink);padding:6px 14px calc(env(safe-area-inset-bottom) + 12px)}
-/* BAR AUDIO BISA DIGESER */
 .audio-wrap{padding:8px 2px 10px;cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none}
-.audio-progress{height:6px;background:rgba(255,255,255,.16);border-radius:999px;overflow:visible;position:relative}
+.audio-progress{height:6px;background:rgba(255,255,255,.16);border-radius:999px;position:relative}
 .audio-progress i{display:block;height:100%;background:var(--gold2);width:0%;border-radius:999px;position:relative}
-.audio-progress i::after{content:"";position:absolute;right:-7px;top:50%;transform:translateY(-50%);width:14px;height:14px;background:#fff;border:2px solid var(--gold);border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.4);opacity:0;transition:opacity .15s}
+.audio-progress i::after{content:"";position:absolute;right:-7px;top:50%;transform:translateY(-50%);width:14px;height:14px;background:#fff;border:2px solid var(--gold);border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.4);opacity:0}
 .audio-wrap:active .audio-progress i::after,.audio-wrap.seeking .audio-progress i::after{opacity:1}
 .audio-time{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:6px;font-variant-numeric:tabular-nums}
 .dots{display:flex;gap:5px;justify-content:center;margin-bottom:10px}.dot{width:6px;height:6px;border-radius:999px;background:rgba(255,255,255,.25);transition:.25s}.dot.on{background:var(--gold);width:18px}
@@ -74,18 +74,21 @@ h2{font-size:clamp(23px,6.2vw,38px);line-height:1.12;font-weight:800;letter-spac
   .landing-inner{padding:12px 20px calc(env(safe-area-inset-bottom) + 12px)}
   .logo{width:56px;height:56px;margin-bottom:8px}.brand2{font-size:22px;margin:6px 0 2px}.motivasi{font-size:12px}.divider{margin:10px auto}.btn-masuk{margin-top:10px;padding:13px}
   header{height:48px}
-  .slide img.foto{width:58%}
-  .slide::after{background:linear-gradient(90deg,rgba(0,0,0,.05) 40%,rgba(6,26,19,.94) 78%)}
-  .content{left:auto;width:46%;bottom:auto;top:50%;transform:translateY(-50%);padding:0 20px}
-  h2{font-size:22px}.arab{font-size:44px}.naskah-body{max-height:22vh}
+  .slide{flex-direction:row}
+  .slide .foto-wrap{width:56%;height:100%}
+  .content{flex:1;padding:16px 20px;display:flex;flex-direction:column;justify-content:center}
+  h2{font-size:21px}.arab{font-size:42px}.naskah-body{max-height:20vh}
   .footer{padding:6px 14px calc(env(safe-area-inset-bottom) + 8px)}.dots{margin-bottom:6px}
 }
 @media (min-width:768px){
-  .content{padding:28px 32px} h2{font-size:38px}
+  .slide .foto-wrap{height:56%}
+  .content{padding:22px 32px} h2{font-size:32px}
   .di-list,.di-head,.di-foot{max-width:720px;margin-left:auto;margin-right:auto;width:100%}
-  #daftarPage{padding-left:20px;padding-right:20px}
 }
-@media (min-width:1024px){ .content{left:50%;transform:translateX(-50%)} }
+@media (min-width:1024px) and (orientation:landscape){
+  .slide .foto-wrap{width:58%}
+  .content{padding:28px 36px}
+}
 </style>
 </head>
 <body>
@@ -303,7 +306,7 @@ var stage=document.getElementById('stage'), dots=document.getElementById('dots')
 for(var i=0;i<DATA.length;i++){
   var el=document.createElement('div'); el.className='slide';
   var arab = i==5 ? '<div class="arab">سَلَام</div>' : '';
-  el.innerHTML='<img class="foto" src="'+DATA[i].bg+'" onerror="this.style.display=\'none\'"><div class="content"><div class="kicker">SLIDE '+(i+1)+'</div><h2>'+DATA[i].title+'</h2>'+arab+'<div class="naskah-box" onclick="this.classList.toggle(\'open\')"><div class="naskah-head"><span>📖 Narasi</span><span>▾</span></div><div class="naskah-body">'+DATA[i].narasi+'</div></div></div>';
+  el.innerHTML='<div class="foto-wrap"><img class="bg-blur" src="'+DATA[i].bg+'" onerror="this.style.display=\'none\'"><img class="foto" src="'+DATA[i].bg+'" onerror="this.style.display=\'none\'"></div><div class="content"><div class="kicker">SLIDE '+(i+1)+'</div><h2>'+DATA[i].title+'</h2>'+arab+'<div class="naskah-box" onclick="this.classList.toggle(\'open\')"><div class="naskah-head"><span>📖 Narasi</span><span>▾</span></div><div class="naskah-body">'+DATA[i].narasi+'</div></div></div>';
   stage.appendChild(el);
   var dot=document.createElement('div'); dot.className='dot'+(i==0?' on':''); dot.onclick=(function(n){return function(){show(n)}})(i); dots.appendChild(dot);
   var di=document.createElement('div'); di.className='di-item'; di.onclick=(function(n){return function(){masukDariDaftar(n)}})(i);
@@ -329,7 +332,6 @@ function togglePlay(){
 audio.addEventListener('ended', function(){ if(cur < DATA.length-1){ show(cur+1); } });
 audio.addEventListener('loadedmetadata', function(){ document.getElementById('durTime').textContent=fmt(audio.duration); });
 audio.addEventListener('timeupdate', function(){ if(isSeeking) return; if(audio.duration){ audioBar.style.width=(audio.currentTime/audio.duration*100)+'%'; document.getElementById('curTime').textContent=fmt(audio.currentTime); document.getElementById('durTime').textContent=fmt(audio.duration); } });
-// SEEK - GESER BAR AUDIO
 function seekFromEvent(e){
   var rect=audioWrap.querySelector('.audio-progress').getBoundingClientRect();
   var x = (e.clientX!==undefined?e.clientX:(e.touches&&e.touches[0]?e.touches[0].clientX:0)) - rect.left;
@@ -338,7 +340,7 @@ function seekFromEvent(e){
   if(audio.duration){ document.getElementById('curTime').textContent=fmt(ratio*audio.duration); }
   return ratio;
 }
-audioWrap.addEventListener('pointerdown', function(e){ isSeeking=true; audioWrap.classList.add('seeking'); var r=seekFromEvent(e); audioWrap.setPointerCapture(e.pointerId); });
+audioWrap.addEventListener('pointerdown', function(e){ isSeeking=true; audioWrap.classList.add('seeking'); seekFromEvent(e); try{audioWrap.setPointerCapture(e.pointerId)}catch(_){} });
 audioWrap.addEventListener('pointermove', function(e){ if(!isSeeking) return; seekFromEvent(e); });
 function endSeek(e){
   if(!isSeeking) return;
