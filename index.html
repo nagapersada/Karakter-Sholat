@@ -4,102 +4,137 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
 <title>Deka Sonjaya - Modern Spiritual</title>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-:root{--gold:#D4AF6A;--gold2:#F3D99B;--green:#0A2E23;--cream:#FFF8EB}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:#061A13;color:var(--cream);height:100dvh;overflow:hidden}
+:root{--gold:#D4AF6A;--gold2:#F3D99B;--ink:#061A13;--cream:#FFF8EB;--muted:#CFC8B0}
+html,body{height:100%;background:var(--ink);overscroll-behavior:none}
+body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;color:var(--cream);overflow:hidden;-webkit-font-smoothing:antialiased}
 .hidden{display:none!important}
-/* PEMBUKA - FULL SCREEN */
-#landing{height:100dvh;height:100svh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;background:url('background.jpg') center/cover no-repeat,linear-gradient(#0A2E23,#061A13)}
-#landing::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(6,26,19,.35) 45%,rgba(6,26,19,.97) 78%)}
-.landing-inner{position:relative;z-index:2;padding:24px 22px calc(env(safe-area-inset-bottom) + 26px);text-align:center;max-width:520px;margin:0 auto;width:100%}
-.logo{width:92px;height:92px;object-fit:contain;margin:0 auto 14px;background:#fff;border-radius:50%;padding:6px;cursor:pointer}
-.brand{font-size:11px;letter-spacing:.35em;color:var(--gold2);font-weight:700}
-.brand2{font-family:'Playfair Display',serif;font-size:30px;line-height:1.1;margin:8px 0 4px}
+.page{height:100dvh;height:100svh;display:flex;flex-direction:column;width:100%;max-width:100vw;overflow:hidden}
+/* ===== PEMBUKA - BERSIH & ELEGAN ===== */
+#landing{position:relative;justify-content:flex-end;overflow:hidden;background:#0A2E23}
+#landing img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+#landing::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 0%,rgba(6,26,19,.32) 42%,rgba(6,26,19,.97) 76%)}
+.landing-inner{position:relative;z-index:2;width:100%;max-width:560px;margin:0 auto;padding:24px 22px calc(env(safe-area-inset-bottom) + 26px);text-align:center}
+.logo{width:88px;height:88px;object-fit:contain;margin:0 auto 14px;background:#fff;border-radius:50%;padding:7px;box-shadow:0 14px 32px rgba(0,0,0,.35)}
+.brand{font-size:11px;letter-spacing:.38em;color:var(--gold2);font-weight:700}
+.brand2{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(28px,7.5vw,36px);line-height:1.08;margin:10px 0 6px}
 .author{font-size:13px;color:#EDE6D3}.author b{color:#fff}
 .divider{width:44px;height:2px;background:var(--gold);margin:16px auto}
-.motivasi{font-size:14px;line-height:1.7;color:#F5EDD6;font-style:italic}.motivasi b{color:var(--gold2);font-style:normal}
-.tagline{margin:14px 0 18px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.tag{font-size:11px;border:1px solid rgba(212,175,106,.5);background:rgba(255,255,255,.08);padding:6px 11px;border-radius:100px}
-.btn-masuk{width:100%;padding:16px;border:none;border-radius:100px;background:linear-gradient(135deg,#E8C87A,#C89A3D);color:#1A1200;font-weight:800;font-size:16px;cursor:pointer}
-.note{font-size:11px;color:#B9B29F;margin-top:12px;line-height:1.5}
-/* UTAMA - FULL SCREEN */
-#app{height:100dvh;height:100svh;display:flex;flex-direction:column;width:100%;max-width:100%;margin:0}
-header{padding:calc(env(safe-area-inset-top) + 10px) 16px 8px;display:flex;justify-content:space-between;align-items:center;background:#061A13}
-.h-left{display:flex;align-items:center;gap:10px;cursor:pointer}.h-logo{width:34px;height:34px;border-radius:50%;object-fit:cover;background:#fff}
-.h-title{font-size:13px;letter-spacing:.12em;font-weight:800;line-height:1.2}.h-title span{display:block;font-size:10px;letter-spacing:.22em;color:var(--gold);font-weight:600}
-.audio-badge{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(212,175,106,.4);display:grid;place-items:center}
-.eq{display:inline-flex;gap:2px;align-items:flex-end;height:12px}.eq i{width:3px;background:var(--gold);display:block;animation:eq .8s infinite}.eq i:nth-child(2){animation-delay:.2s}.eq i:nth-child(3){animation-delay:.4s}
-@keyframes eq{0%,100%{height:4px}50%{height:12px}}.eq.paused i{animation-play-state:paused;height:4px}
-.stage{flex:1;position:relative;overflow:hidden;margin:0;border-radius:0;background:var(--green);border:none}
-.slide{position:absolute;inset:0;padding:20px;padding-bottom:24px;display:none;flex-direction:column;justify-content:flex-end;background-size:cover;background-position:center}
-.slide.active{display:flex;animation:fade .4s ease}@keyframes fade{from{opacity:0}to{opacity:1}}
-.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 25%,rgba(6,26,19,.94) 78%)}
-.content{position:relative;z-index:2}.kicker{font-size:11px;letter-spacing:.22em;color:var(--gold2);font-weight:700}
-h2{font-size:clamp(24px,6vw,40px);line-height:1.1;font-weight:800}
-.arab{font-family:'Amiri',serif;font-size:clamp(48px,12vw,90px);color:var(--gold2);line-height:1;text-shadow:0 0 30px rgba(212,175,106,.6)}
-.naskah-box{margin-top:12px;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);border-radius:16px;overflow:hidden}
-.naskah-head{padding:11px 13px;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;cursor:pointer}
-.naskah-head span:last-child{color:var(--gold2)}
-.naskah-body{display:none;padding:0 13px 13px;font-size:12.5px;line-height:1.7;color:#EDE6D3;max-height:220px;overflow-y:auto;white-space:pre-line}
-.naskah-box.open .naskah-body{display:block}
-.controls{padding:12px 14px calc(env(safe-area-inset-bottom) + 10px);display:flex;align-items:center;gap:10px;background:#061A13}
-.progress{flex:1;height:5px;background:rgba(255,255,255,.15);border-radius:100px;overflow:hidden}.bar{height:100%;background:var(--gold);transition:.3s}
-.btn{width:46px;height:46px;border-radius:50%;border:none;font-size:18px;cursor:pointer;flex-shrink:0}.btn-prev{background:#fff}.btn-next{background:var(--gold);font-weight:800}.btn-play{width:52px;height:52px;background:#fff;font-size:20px}
-.counter{font-size:12px;min-width:42px;text-align:center;color:#CFC8B0}
-.dots{display:flex;gap:5px;justify-content:center;padding:4px 0 0;background:#061A13}.dot{width:6px;height:6px;border-radius:100px;background:rgba(255,255,255,.25)}.dot.on{background:var(--gold);width:18px}
-.audio-progress{height:3px;background:rgba(255,255,255,.12);margin:0 14px;border-radius:100px;overflow:hidden;background:#061A13}.audio-progress i{display:block;height:100%;background:var(--gold2);width:0%}
-@media (orientation:landscape) and (max-height:500px){
-  .landing-inner{padding:14px 20px 14px}.logo{width:62px;height:62px}.brand2{font-size:22px}.motivasi{font-size:12px}
-  .slide{padding:16px 20px;justify-content:center}
-  .slide::after{background:linear-gradient(90deg,rgba(0,0,0,.05) 35%,rgba(6,26,19,.92) 78%)}
-  h2{font-size:24px}.arab{font-size:48px}
+.motivasi{font-size:14px;line-height:1.65;font-style:italic;color:#F5EDD6}.motivasi b{color:var(--gold2);font-style:normal}
+.btn-masuk{width:100%;padding:16px;border:none;border-radius:999px;background:linear-gradient(135deg,#EED49A,#C89A3D);color:#1A1200;font-weight:800;font-size:15px;cursor:pointer;margin-top:18px;box-shadow:0 12px 28px rgba(212,175,106,.32)}
+.btn-masuk:active{transform:scale(.98)}
+.note{font-size:11px;color:#B9B29F;margin-top:12px}
+/* ===== DAFTAR ISI - ELEGAN & PRESISI ===== */
+#daftarPage{background:linear-gradient(180deg,#071B14,#061A13);padding:calc(env(safe-area-inset-top) + 16px) 20px calc(env(safe-area-inset-bottom) + 14px)}
+.di-head{padding:0 0 14px;border-bottom:1px solid rgba(212,175,106,.25);display:flex;justify-content:space-between;align-items:center;gap:12px}
+.di-head b{font-family:'Playfair Display',serif;font-size:22px;line-height:1.1}.di-head b span{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;letter-spacing:.22em;color:var(--gold);font-weight:700;margin-top:4px}
+.di-logo{width:40px;height:40px;border-radius:50%;background:#fff;object-fit:cover;flex-shrink:0}
+.di-list{flex:1;overflow-y:auto;padding-top:14px;scrollbar-width:none}.di-list::-webkit-scrollbar{display:none}
+.di-item{display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:12px;margin-bottom:10px}
+.di-thumb{width:58px;height:58px;border-radius:11px;object-fit:cover;background:#123F30;flex-shrink:0}
+.di-text{flex:1;min-width:0}
+.di-text small{color:var(--gold2);font-size:10px;letter-spacing:.14em;font-weight:700}
+.di-text span{display:block;font-size:14px;font-weight:700;line-height:1.35;margin-top:2px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.di-foot{padding-top:12px}
+.btn-back{width:100%;padding:13px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.06);color:#fff;font-weight:700;font-size:13px}
+/* ===== UTAMA - FULLSCREEN ===== */
+#app{background:var(--ink)}
+header{flex-shrink:0;height:56px;padding:calc(env(safe-area-inset-top) + 6px) 16px 6px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.h-left{display:flex;align-items:center;gap:10px;min-width:0;flex:1}
+.h-logo{width:34px;height:34px;border-radius:50%;background:#fff;object-fit:cover;flex-shrink:0}
+.h-title{font-size:12.5px;letter-spacing:.13em;font-weight:800;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.h-title span{display:block;font-size:9.5px;letter-spacing:.22em;color:var(--gold);font-weight:600}
+.h-btn{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(212,175,106,.45);display:grid;place-items:center;color:#fff;font-size:16px;flex-shrink:0}
+.stage{flex:1;min-height:0;position:relative;overflow:hidden;background:linear-gradient(160deg,#0A2E23,#123F30)}
+.slide{position:absolute;inset:0;display:none}.slide.active{display:block;animation:fade .3s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.slide img.foto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;background:#0A2E23}
+.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.02) 30%,rgba(6,26,19,.90) 78%);pointer-events:none}
+.content{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:20px;max-width:720px}
+.kicker{font-size:10.5px;letter-spacing:.24em;color:var(--gold2);font-weight:700;margin-bottom:8px}
+h2{font-size:clamp(23px,6.2vw,38px);line-height:1.12;font-weight:800;letter-spacing:-.01em}
+.arab{font-family:'Amiri',serif;font-size:clamp(46px,11vw,82px);color:var(--gold2);line-height:1;margin-top:6px}
+.naskah-box{margin-top:12px;background:rgba(0,0,0,.48);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);border-radius:14px;overflow:hidden}
+.naskah-head{padding:11px 13px;display:flex;justify-content:space-between;font-size:13px;font-weight:700}.naskah-head span:last-child{color:var(--gold2);font-size:11px}
+.naskah-body{display:none;padding:0 13px 13px;font-size:12.5px;line-height:1.75;color:#EDE6D3;max-height:32vh;overflow-y:auto;white-space:pre-line}.naskah-box.open .naskah-body{display:block}
+.footer{flex-shrink:0;background:var(--ink);padding:10px 14px calc(env(safe-area-inset-bottom) + 12px)}
+.audio-progress{height:3px;background:rgba(255,255,255,.12);border-radius:999px;overflow:hidden;margin:0 2px 10px}.audio-progress i{display:block;height:100%;background:var(--gold2);width:0%}
+.dots{display:flex;gap:5px;justify-content:center;margin-bottom:10px}.dot{width:6px;height:6px;border-radius:999px;background:rgba(255,255,255,.25);transition:.25s}.dot.on{background:var(--gold);width:18px}
+.controls{display:flex;align-items:center;gap:10px;max-width:720px;margin:0 auto}
+.progress{flex:1;height:5px;background:rgba(255,255,255,.14);border-radius:999px;overflow:hidden}.bar{height:100%;background:var(--gold);transition:width .3s}
+.btn{width:46px;height:46px;border-radius:50%;border:none;font-size:17px;flex-shrink:0;display:grid;place-items:center}.btn:active{transform:scale(.94)}
+.btn-prev{background:#fff;color:#111}.btn-next{background:var(--gold);color:#1A1200;font-weight:800}.btn-play{width:52px;height:52px;background:#fff;color:#111;font-size:19px}
+.counter{font-size:12px;min-width:44px;text-align:center;color:var(--muted);font-variant-numeric:tabular-nums}
+@media (orientation:landscape) and (max-height:520px){
+  .landing-inner{padding:12px 20px calc(env(safe-area-inset-bottom) + 12px)}
+  .logo{width:56px;height:56px;margin-bottom:8px}.brand2{font-size:22px;margin:6px 0 2px}.motivasi{font-size:12px}.divider{margin:10px auto}.btn-masuk{margin-top:10px;padding:13px}
+  header{height:48px}
+  .slide img.foto{width:58%}
+  .slide::after{background:linear-gradient(90deg,rgba(0,0,0,.05) 40%,rgba(6,26,19,.94) 78%)}
+  .content{left:auto;width:46%;bottom:auto;top:50%;transform:translateY(-50%);padding:0 20px}
+  h2{font-size:22px}.arab{font-size:44px}.naskah-body{max-height:22vh}
+  .footer{padding:8px 14px calc(env(safe-area-inset-bottom) + 8px)}.dots{margin-bottom:6px}
 }
+@media (min-width:768px){
+  .content{padding:28px 32px} h2{font-size:38px}
+  .di-list,.di-head,.di-foot{max-width:720px;margin-left:auto;margin-right:auto;width:100%}
+  #daftarPage{padding-left:20px;padding-right:20px}
+}
+@media (min-width:1024px){ .content{left:50%;transform:translateX(-50%)} }
 </style>
 </head>
 <body>
 
-<div id="landing">
+<div id="landing" class="page">
+  <img class="bg" src="background.jpg" onerror="this.style.display='none'">
   <div class="landing-inner">
-    <img src="logo.png" class="logo" onclick="kePembuka()" title="Ke Halaman Pembuka">
+    <img src="logo.png" class="logo" onclick="kePembuka()">
     <div class="brand">MODERN SPIRITUAL</div>
     <div class="brand2">Sholat Adalah<br>Sekolah Karakter</div>
     <div class="author">Oleh <b>Deka Sonjaya</b> • Modern Spiritual</div>
     <div class="divider"></div>
     <div class="motivasi">“Orang yang benar sholatnya tidak dilihat ketika takbir, <b>tetapi terlihat setelah salam.</b>”</div>
-    <div class="tagline"><span class="tag">✦ 12 Slide</span><span class="tag">🎧 Audio Otomatis</span><span class="tag">📖 Narasi</span></div>
     <button class="btn-masuk" onclick="masuk()">▶ &nbsp; MASUK & MULAI MENDENGARKAN</button>
-    <div class="note">Gunakan <b>earphone</b> untuk pengalaman terbaik.</div>
+    <div class="note">Gunakan earphone untuk pengalaman terbaik.</div>
   </div>
 </div>
 
-<div id="app" class="hidden">
+<div id="daftarPage" class="page hidden">
+  <div class="di-head"><div><b>Daftar Isi<span>12 SLIDE • DEKA SONJAYA</span></b></div><img src="logo.png" class="di-logo" onclick="kePembuka()"></div>
+  <div class="di-list" id="diList"></div>
+  <div class="di-foot"><button class="btn-back" onclick="kembaliKeSlide()">← Kembali ke Slide</button></div>
+</div>
+
+<div id="app" class="page hidden">
   <header>
     <div class="h-left" onclick="kePembuka()"><img src="logo.png" class="h-logo"><div class="h-title">DEKA SONJAYA<span>MODERN SPIRITUAL</span></div></div>
-    <div class="audio-badge"><span class="eq" id="eq"><i></i><i></i><i></i></span></div>
+    <button class="h-btn" onclick="keDaftarIsi()">☰</button>
   </header>
   <div class="stage" id="stage"></div>
-  <div class="dots" id="dots"></div>
-  <div class="audio-progress"><i id="audioBar"></i></div>
-  <div class="controls">
-    <button class="btn btn-prev" onclick="go(-1)">←</button>
-    <button class="btn btn-play" id="playBtn" onclick="togglePlay()">⏸️</button>
-    <div class="progress"><div class="bar" id="bar"></div></div>
-    <div class="counter"><span id="cur2">1</span>/12</div>
-    <button class="btn btn-next" onclick="go(1)">→</button>
+  <div class="footer">
+    <div class="audio-progress"><i id="audioBar"></i></div>
+    <div class="dots" id="dots"></div>
+    <div class="controls">
+      <button class="btn btn-prev" onclick="go(-1)">←</button>
+      <button class="btn btn-play" id="playBtn" onclick="togglePlay()">⏸️</button>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <div class="counter"><span id="cur2">1</span> / 12</div>
+      <button class="btn btn-next" onclick="go(1)">→</button>
+    </div>
   </div>
   <audio id="audio" preload="auto" playsinline></audio>
 </div>
 
 <script>
-const DATA=[
-{kicker:"SLIDE 1 - JUDUL",title:"SHOLAT ADALAH SEKOLAH KARAKTER",bg:"slide1.jpg",narasi:`Assalamu'alaikum warahmatullahi wabarakatuh, selamat pagi dan salam sejahtera untuk kita semua.
+var DATA=[
+{title:"SHOLAT ADALAH SEKOLAH KARAKTER",bg:"slide1.jpg",narasi:`Assalamu'alaikum warahmatullahi wabarakatuh, selamat pagi dan salam sejahtera untuk kita semua.
 
 Terima kasih atas kesempatan yang diberikan. Perkenalkan, saya Deka Sonjaya.
 
 Saudaraku, hari ini kita akan membahas satu tema yang sangat dekat dengan keseharian kita. Judulnya sederhana, tapi maknanya dalam: Sholat adalah Sekolah Karakter.`},
-{kicker:"SLIDE 2 - KALIMAT KUNCI",title:"Orang yang benar sholatnya tidak dilihat ketika takbir, tetapi terlihat setelah salam.",bg:"slide2.jpg",narasi:`Saya ingin memulai dengan satu kalimat penting yang harus kita pegang sampai akhir.
+{title:"Orang yang benar sholatnya tidak dilihat ketika takbir, tetapi terlihat setelah salam.",bg:"slide2.jpg",narasi:`Saya ingin memulai dengan satu kalimat penting yang harus kita pegang sampai akhir.
 
 Orang yang benar sholatnya tidak dilihat ketika takbir, tetapi terlihat setelah salam.
 
@@ -112,7 +147,7 @@ Artinya, jangan menilai sholat seseorang dari bagaimana ia takbir. Jangan menila
 Tapi nilai sholat seseorang dari apa yang terjadi setelah ia salam. Setelah ia selesai sholat, apakah ia menjadi lebih disiplin? Apakah ia menjadi lebih bertanggungjawab? Apakah ia menjadi lebih peduli? Apakah ia menjadi lebih dapat dipercaya? Apakah ia menjadi lebih rendah hati?
 
 Itulah ukuran sholat yang benar.`},
-{kicker:"SLIDE 3 - MASALAHNYA",title:"Kenapa karakter tidak berubah?",bg:"slide3.jpg",narasi:`Saya sering merenung. Kenapa ada orang yang rajin sholat, tapi karakternya tidak berubah? Kenapa ada orang yang sudah puluhan tahun sholat, tapi masih suka menunda janji, masih mudah marah, masih tidak bisa dipercaya, masih sombong?
+{title:"Kenapa karakter tidak berubah?",bg:"slide3.jpg",narasi:`Saya sering merenung. Kenapa ada orang yang rajin sholat, tapi karakternya tidak berubah? Kenapa ada orang yang sudah puluhan tahun sholat, tapi masih suka menunda janji, masih mudah marah, masih tidak bisa dipercaya, masih sombong?
 
 Apakah sholatnya yang gagal? Apakah ajarannya yang kurang? Atau ada yang salah dari cara kita memahami sholat?
 
@@ -123,7 +158,7 @@ Allah berfirman, Innasshalaata tanhaa 'anil fahsyaa'i wal munkar. Sesungguhnya s
 Perhatikan baik-baik, Saudaraku. Allah tidak berkata sholat itu hanya menggugurkan kewajiban. Allah berkata sholat itu mencegah. Mencegah itu artinya mengubah. Mengubah perilaku, mengubah karakter, mengubah cara kita hidup.
 
 Jadi kalau karakter kita belum berubah, bukan sholatnya yang salah. Tapi kita yang belum mengambil pelajarannya.`},
-{kicker:"SLIDE 4 - ANALOGI ANAK 12 TAHUN",title:"Anak 12 Tahun Tidak Bisa Baca Tulis - Salah Siapa?",bg:"slide4.jpg",narasi:`Supaya mudah dipahami, saya beri contoh begini, Saudaraku.
+{title:"Anak 12 Tahun Tidak Bisa Baca Tulis - Salah Siapa?",bg:"slide4.jpg",narasi:`Supaya mudah dipahami, saya beri contoh begini, Saudaraku.
 
 Bayangkan ada seorang anak. Usianya sudah 12 tahun. Ia sudah 6 tahun sekolah, dari kelas 1 sampai kelas 6 SD. Setiap hari ia berangkat sekolah, ia memakai seragam, ia duduk di kelas, ia mendengarkan guru, ia ikut ujian.
 
@@ -138,7 +173,7 @@ Bukan. Sekolahnya tidak salah. Kurikulumnya tidak salah. Gurunya sudah mengajar 
 Yang salah adalah anak itu sendiri. Karena selama 6 tahun, ia hanya hadir di sekolah, tapi ia tidak pernah benar-benar belajar. Badannya ada di kelas, tapi pikirannya entah ke mana. Ia datang, ia duduk, ia pulang. Tapi ia tidak membawa pulang pelajarannya.
 
 Ia rajin hadir, tapi ia tidak pernah mendapatkan pelajaran dari sekolahnya.`},
-{kicker:"SLIDE 5 - ANALOGI SHOLAT & KHUSYUK",title:"Hadir Tapi Tidak Belajar",bg:"slide5.jpg",narasi:`Nah, Saudaraku, begitulah gambaran banyak dari kita dalam sholat.
+{title:"Hadir Tapi Tidak Belajar",bg:"slide5.jpg",narasi:`Nah, Saudaraku, begitulah gambaran banyak dari kita dalam sholat.
 
 Ada orang yang sudah 20 tahun sholat, sudah 30 tahun sholat, bahkan sudah 40 tahun sholat. Setiap hari ia datang, ia takbir, ia rukuk, ia sujud, ia salam. Badannya ada di atas sajadah, tapi pikirannya entah ke mana. Mikirin pekerjaan, mikirin hutang, mikirin chat yang belum dibalas, mikirin nanti makan apa.
 
@@ -153,12 +188,12 @@ Allah berfirman, Qad aflahal mu'minuun, alladziina hum fii shalaatihim khaasyi'u
 Khusyuk itu bukan soal nangis, bukan soal merem, bukan soal lama sujudnya. Khusyuk itu ketika kita pulang dari sholat, kita membawa pulang pelajarannya.
 
 Kalau anak sekolah pulang membawa ilmu membaca dan menulis, maka orang yang sholat pulang membawa karakter.`},
-{kicker:"SLIDE 6 - JEMBATAN KE SALAM",title:"S A L A M",bg:"slide6.jpg",narasi:`Dan inilah buktinya. Sekali lagi, Saudaraku, pegang kalimat ini:
+{title:"S A L A M",bg:"slide6.jpg",narasi:`Dan inilah buktinya. Sekali lagi, Saudaraku, pegang kalimat ini:
 
 Orang yang benar sholatnya tidak dilihat ketika takbir, tetapi terlihat setelah salam.
 
 Apa saja yang terlihat setelah salam itu? Saya rangkum dalam satu kata yang mudah kita ingat, mudah kita hafal, dan mudah kita amalkan: SALAM.`},
-{kicker:"SLIDE 7 - S",title:"S - Setia pada waktu - Disiplin",bg:"slide7.jpg",narasi:`Pertama, S. Setia pada waktu. Artinya Disiplin.
+{title:"S - Setia pada waktu - Disiplin",bg:"slide7.jpg",narasi:`Pertama, S. Setia pada waktu. Artinya Disiplin.
 
 Allah berfirman, Innasshalaata kaanat 'alal mu'miniina kitaabam mauquutaa. Sesungguhnya sholat itu adalah kewajiban yang ditentukan waktunya atas orang-orang yang beriman. QS. An-Nisa: 103.
 
@@ -175,7 +210,7 @@ Sebaliknya, kalau kita suka menunda sholat, kita akan terbiasa menunda janji. Ki
 Coba kita perhatikan. Orang yang sering telat sholat, biasanya juga sering telat janji. Orang yang sering buru-buru sholat di akhir waktu, biasanya juga sering buru-buru menyelesaikan pekerjaannya. Karena apa yang kita latih di dalam sholat, itulah yang akan terbawa ke luar sholat.
 
 Jadi, orang yang disiplin sholatnya, akan disiplin hidupnya. Disiplin itu bukan bakat. Disiplin itu hasil latihan. Dan latihan disiplin yang paling utama adalah sholat tepat waktu.`},
-{kicker:"SLIDE 8 - A PERTAMA",title:"A - Amanah - Bertanggungjawab",bg:"slide8.jpg",narasi:`Kedua, A. Amanah. Artinya Bertanggungjawab.
+{title:"A - Amanah - Bertanggungjawab",bg:"slide8.jpg",narasi:`Kedua, A. Amanah. Artinya Bertanggungjawab.
 
 Allah berfirman, Innallaaha ya'murukum an tu'addul amaanaati ilaa ahlihaa. Sesungguhnya Allah menyuruh kamu menyampaikan amanah kepada yang berhak menerimanya. QS. An-Nisa: 58.
 
@@ -190,7 +225,7 @@ Coba kita jujur pada diri sendiri. Kalau sholat yang hanya 5 menit saja kita khi
 Bagaimana kita bisa dipercaya memegang uang perusahaan, kalau amanah sholat saja kita abaikan? Bagaimana kita bisa dipercaya memimpin orang lain, kalau memimpin diri sendiri untuk sholat saja kita gagal?
 
 Jadi, orang yang menjaga sholatnya sampai salam, dia sedang melatih dirinya menjadi orang yang bertanggungjawab. Orang yang amanah dalam sholatnya, akan amanah dalam hidupnya.`},
-{kicker:"SLIDE 9 - L",title:"L - Lembut hatinya - Peduli",bg:"slide9.jpg",narasi:`Ketiga, L. Lembut hatinya. Artinya Peduli.
+{title:"L - Lembut hatinya - Peduli",bg:"slide9.jpg",narasi:`Ketiga, L. Lembut hatinya. Artinya Peduli.
 
 Allah berfirman kepada Nabi, Fa bimaa rahmatim minallaahi linta lahum. Maka berkat rahmat Allah, engkau berlaku lembut terhadap mereka. QS. Ali 'Imran: 159.
 
@@ -207,7 +242,7 @@ Dan hati yang tenang, lama-lama akan menjadi peduli. Peduli itu bukan hanya seka
 Orang yang hatinya keras, dia tidak akan peduli. Tapi orang yang hatinya lembut karena sholat, dia akan peduli tanpa diminta.
 
 Jadi, sholat yang benar akan melahirkan hati yang peduli. Peduli itu adalah bukti bahwa sholat kita sudah masuk ke hati, bukan hanya sampai di gerakan.`},
-{kicker:"SLIDE 10 - A KEDUA",title:"A - Akhlaqnya jujur - Dapat Dipercaya",bg:"slide10.jpg",narasi:`Keempat, A. Akhlaqnya jujur. Artinya Dapat Dipercaya.
+{title:"A - Akhlaqnya jujur - Dapat Dipercaya",bg:"slide10.jpg",narasi:`Keempat, A. Akhlaqnya jujur. Artinya Dapat Dipercaya.
 
 Allah berfirman, Yaa ayyuhalladziina aamanut taqullaaha wa kuunuu ma'ash shaadiqiin. Wahai orang-orang yang beriman, bertakwalah kepada Allah dan jadilah bersama orang-orang yang jujur. QS. At-Taubah: 119.
 
@@ -224,7 +259,7 @@ Coba kita bayangkan, Saudaraku. Orang yang terbiasa jujur dalam sholatnya, dia a
 Karena kejujuran itu bukan hanya soal kata-kata. Kejujuran itu adalah karakter.
 
 Jadi, orang yang jujur dalam sholatnya, dia akan menjadi orang yang dapat dipercaya dalam hidupnya. Dan orang yang dapat dipercaya, itu adalah harta yang paling mahal di zaman sekarang ini.`},
-{kicker:"SLIDE 11 - M",title:"M - Merendah di sujud - Rendah Hati",bg:"slide11.jpg",narasi:`Kelima, M. Merendah di sujud. Artinya Rendah Hati.
+{title:"M - Merendah di sujud - Rendah Hati",bg:"slide11.jpg",narasi:`Kelima, M. Merendah di sujud. Artinya Rendah Hati.
 
 Allah berfirman, Wa 'ibaadur rahmaanilladziina yamsyuuna 'alal ardhi haunaa. Dan hamba-hamba Tuhan Yang Maha Pengasih itu adalah orang-orang yang berjalan di bumi dengan rendah hati. QS. Al-Furqan: 63.
 
@@ -239,7 +274,7 @@ Sehebat apa pun kita di luar, saat sujud kita diingatkan bahwa kita tetap hamba.
 Orang yang sering sujud, dia tidak akan mudah sombong. Karena setiap hari, 5 kali sehari, dia diingatkan untuk merendah. Dia diingatkan bahwa dia tidak ada apa-apanya tanpa Allah.
 
 Jadi, orang yang sering sujud, dia akan menjadi orang yang rendah hati. Rendah hati itu bukan merendahkan diri. Rendah hati itu adalah sadar bahwa semua yang kita miliki adalah dari Allah.`},
-{kicker:"SLIDE 12 - PENUTUP",title:"Orang yang benar sholatnya tidak dilihat ketika takbir, tetapi terlihat setelah salam.",bg:"slide12.jpg",narasi:`Saudaraku, mari kita simpulkan. Kita kembali ke kalimat yang tadi saya sampaikan di awal.
+{title:"Orang yang benar sholatnya tidak dilihat ketika takbir, tetapi terlihat setelah salam.",bg:"slide12.jpg",narasi:`Saudaraku, mari kita simpulkan. Kita kembali ke kalimat yang tadi saya sampaikan di awal.
 
 Orang yang benar sholatnya tidak dilihat ketika takbir, tetapi terlihat setelah salam.
 
@@ -257,50 +292,42 @@ Terima kasih atas perhatian Saudaraku semua. Saya Deka Sonjaya, mohon maaf atas 
 
 Wassalamu'alaikum warahmatullahi wabarakatuh.`}
 ];
-let cur=0, userPaused=false;
-const stage=document.getElementById('stage'), dots=document.getElementById('dots'), audio=document.getElementById('audio'), playBtn=document.getElementById('playBtn'), eq=document.getElementById('eq');
-DATA.forEach((d,i)=>{
-  let el=document.createElement('div');
-  el.className='slide'; el.style.backgroundImage=`url('${d.bg}')`;
-  let arab = i==5 ? `<div class="arab">سَلَام</div>` : '';
-  el.innerHTML=`<div class="content"><div class="kicker">${d.kicker}</div><h2>${d.title}</h2>${arab}
-  <div class="naskah-box" onclick="this.classList.toggle('open')"><div class="naskah-head"><span>📖 Narasi</span><span>▾</span></div><div class="naskah-body">${d.narasi}</div></div></div>`;
+var cur=0, userPaused=false;
+var stage=document.getElementById('stage'), dots=document.getElementById('dots'), audio=document.getElementById('audio'), playBtn=document.getElementById('playBtn');
+for(var i=0;i<DATA.length;i++){
+  var el=document.createElement('div'); el.className='slide';
+  var arab = i==5 ? '<div class="arab">سَلَام</div>' : '';
+  el.innerHTML='<img class="foto" src="'+DATA[i].bg+'" onerror="this.style.display=\'none\'"><div class="content"><div class="kicker">SLIDE '+(i+1)+'</div><h2>'+DATA[i].title+'</h2>'+arab+'<div class="naskah-box" onclick="this.classList.toggle(\'open\')"><div class="naskah-head"><span>📖 Narasi</span><span>▾</span></div><div class="naskah-body">'+DATA[i].narasi+'</div></div></div>';
   stage.appendChild(el);
-  let dot=document.createElement('div'); dot.className='dot'+(i==0?' on':''); dot.onclick=()=>show(i); dots.appendChild(dot);
-});
+  var dot=document.createElement('div'); dot.className='dot'+(i==0?' on':''); dot.onclick=(function(n){return function(){show(n)}})(i); dots.appendChild(dot);
+  var di=document.createElement('div'); di.className='di-item'; di.onclick=(function(n){return function(){masukDariDaftar(n)}})(i);
+  di.innerHTML='<img class="di-thumb" src="'+DATA[i].bg+'" onerror="this.style.display=\'none\'"><div class="di-text"><small>SLIDE '+(i+1)+'</small><span>'+DATA[i].title+'</span></div><span>›</span>';
+  document.getElementById('diList').appendChild(di);
+}
 function show(n){
   cur=(n+DATA.length)%DATA.length;
-  document.querySelectorAll('.slide').forEach((s,i)=>s.classList.toggle('active',i==cur));
-  document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('on',i==cur));
+  var slides=document.querySelectorAll('.slide'); for(var i=0;i<slides.length;i++){ slides[i].classList.toggle('active', i==cur); }
+  var ds=document.querySelectorAll('.dot'); for(var i=0;i<ds.length;i++){ ds[i].classList.toggle('on', i==cur); }
   document.getElementById('bar').style.width=((cur+1)/DATA.length*100)+'%';
   document.getElementById('cur2').textContent=cur+1;
-  audio.src=`slide${cur+1}.mp3`;
-  eq.classList.remove('paused');
-  if(!userPaused){ audio.play().catch(()=>{ eq.classList.add('paused'); }); }
+  audio.src='slide'+(cur+1)+'.mp3';
+  if(!userPaused){ audio.play().catch(function(){}); }
 }
 function go(d){ userPaused=false; playBtn.textContent='⏸️'; show(cur+d); }
 function togglePlay(){
-  if(audio.paused){ audio.play(); userPaused=false; playBtn.textContent='⏸️'; eq.classList.remove('paused'); }
-  else{ audio.pause(); userPaused=true; playBtn.textContent='▶️'; eq.classList.add('paused'); }
+  if(audio.paused){ audio.play(); userPaused=false; playBtn.textContent='⏸️'; }
+  else{ audio.pause(); userPaused=true; playBtn.textContent='▶️'; }
 }
-audio.addEventListener('ended', ()=>{ if(cur < DATA.length-1){ show(cur+1); } else { eq.classList.add('paused'); playBtn.textContent='▶️'; } });
-audio.addEventListener('timeupdate', ()=>{ if(audio.duration) document.getElementById('audioBar').style.width=(audio.currentTime/audio.duration*100)+'%'; });
-let sx=0; stage.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
-stage.addEventListener('touchend',e=>{let dx=e.changedTouches[0].clientX-sx; if(dx<-50)go(1); if(dx>50)go(-1)},{passive:true});
-document.addEventListener('keydown',e=>{if(e.key=='ArrowRight')go(1); if(e.key=='ArrowLeft')go(-1)});
-function masuk(){
-  document.getElementById('landing').classList.add('hidden');
-  document.getElementById('app').classList.remove('hidden');
-  if(document.documentElement.requestFullscreen){ document.documentElement.requestFullscreen().catch(()=>{}); }
-  show(0);
-}
-function kePembuka(){
-  audio.pause(); userPaused=true; playBtn.textContent='▶️'; eq.classList.add('paused');
-  document.getElementById('app').classList.add('hidden');
-  document.getElementById('landing').classList.remove('hidden');
-  if(document.fullscreenElement){ document.exitFullscreen().catch(()=>{}); }
-  window.scrollTo(0,0);
-}
+audio.addEventListener('ended', function(){ if(cur < DATA.length-1){ show(cur+1); } });
+audio.addEventListener('timeupdate', function(){ if(audio.duration) document.getElementById('audioBar').style.width=(audio.currentTime/audio.duration*100)+'%'; });
+var sx=0; stage.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+stage.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx; if(dx<-50)go(1); if(dx>50)go(-1)},{passive:true});
+function sembunyikanSemua(){ document.getElementById('landing').classList.add('hidden'); document.getElementById('daftarPage').classList.add('hidden'); document.getElementById('app').classList.add('hidden'); }
+function keDaftarIsi(){ sembunyikanSemua(); document.getElementById('daftarPage').classList.remove('hidden'); }
+function kembaliKeSlide(){ sembunyikanSemua(); document.getElementById('app').classList.remove('hidden'); }
+function masuk(){ sembunyikanSemua(); document.getElementById('app').classList.remove('hidden'); if(document.documentElement.requestFullscreen){ document.documentElement.requestFullscreen().catch(function(){}); } show(0); }
+function masukDariDaftar(i){ sembunyikanSemua(); document.getElementById('app').classList.remove('hidden'); userPaused=false; playBtn.textContent='⏸️'; show(i); }
+function kePembuka(){ audio.pause(); userPaused=true; playBtn.textContent='▶️'; sembunyikanSemua(); document.getElementById('landing').classList.remove('hidden'); if(document.fullscreenElement){ document.exitFullscreen().catch(function(){}); } }
 </script>
 </body>
 </html>
