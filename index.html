@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<title>Deka Sonjaya - Modern Spiritual</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--gold:#D4AF6A;--gold2:#F3D99B;--green:#0A2E23;--cream:#FFF8EB}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#061A13;color:var(--cream);height:100dvh;overflow:hidden}
+.hidden{display:none!important}
+/* PEMBUKA - FULL SCREEN */
+#landing{height:100dvh;height:100svh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;background:url('background.jpg') center/cover no-repeat,linear-gradient(#0A2E23,#061A13)}
+#landing::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(6,26,19,.35) 45%,rgba(6,26,19,.97) 78%)}
+.landing-inner{position:relative;z-index:2;padding:24px 22px calc(env(safe-area-inset-bottom) + 26px);text-align:center;max-width:520px;margin:0 auto;width:100%}
+.logo{width:92px;height:92px;object-fit:contain;margin:0 auto 14px;background:#fff;border-radius:50%;padding:6px;cursor:pointer}
+.brand{font-size:11px;letter-spacing:.35em;color:var(--gold2);font-weight:700}
+.brand2{font-family:'Playfair Display',serif;font-size:30px;line-height:1.1;margin:8px 0 4px}
+.author{font-size:13px;color:#EDE6D3}.author b{color:#fff}
+.divider{width:44px;height:2px;background:var(--gold);margin:16px auto}
+.motivasi{font-size:14px;line-height:1.7;color:#F5EDD6;font-style:italic}.motivasi b{color:var(--gold2);font-style:normal}
+.tagline{margin:14px 0 18px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.tag{font-size:11px;border:1px solid rgba(212,175,106,.5);background:rgba(255,255,255,.08);padding:6px 11px;border-radius:100px}
+.btn-masuk{width:100%;padding:16px;border:none;border-radius:100px;background:linear-gradient(135deg,#E8C87A,#C89A3D);color:#1A1200;font-weight:800;font-size:16px;cursor:pointer}
+.note{font-size:11px;color:#B9B29F;margin-top:12px;line-height:1.5}
+/* UTAMA - FULL SCREEN */
+#app{height:100dvh;height:100svh;display:flex;flex-direction:column;width:100%;max-width:100%;margin:0}
+header{padding:calc(env(safe-area-inset-top) + 10px) 16px 8px;display:flex;justify-content:space-between;align-items:center;background:#061A13}
+.h-left{display:flex;align-items:center;gap:10px;cursor:pointer}.h-logo{width:34px;height:34px;border-radius:50%;object-fit:cover;background:#fff}
+.h-title{font-size:13px;letter-spacing:.12em;font-weight:800;line-height:1.2}.h-title span{display:block;font-size:10px;letter-spacing:.22em;color:var(--gold);font-weight:600}
+.audio-badge{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(212,175,106,.4);display:grid;place-items:center}
+.eq{display:inline-flex;gap:2px;align-items:flex-end;height:12px}.eq i{width:3px;background:var(--gold);display:block;animation:eq .8s infinite}.eq i:nth-child(2){animation-delay:.2s}.eq i:nth-child(3){animation-delay:.4s}
+@keyframes eq{0%,100%{height:4px}50%{height:12px}}.eq.paused i{animation-play-state:paused;height:4px}
+.stage{flex:1;position:relative;overflow:hidden;margin:0;border-radius:0;background:var(--green);border:none}
+.slide{position:absolute;inset:0;padding:20px;padding-bottom:24px;display:none;flex-direction:column;justify-content:flex-end;background-size:cover;background-position:center}
+.slide.active{display:flex;animation:fade .4s ease}@keyframes fade{from{opacity:0}to{opacity:1}}
+.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 25%,rgba(6,26,19,.94) 78%)}
+.content{position:relative;z-index:2}.kicker{font-size:11px;letter-spacing:.22em;color:var(--gold2);font-weight:700}
+h2{font-size:clamp(24px,6vw,40px);line-height:1.1;font-weight:800}
+.arab{font-family:'Amiri',serif;font-size:clamp(48px,12vw,90px);color:var(--gold2);line-height:1;text-shadow:0 0 30px rgba(212,175,106,.6)}
+.naskah-box{margin-top:12px;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);border-radius:16px;overflow:hidden}
+.naskah-head{padding:11px 13px;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;cursor:pointer}
+.naskah-head span:last-child{color:var(--gold2)}
+.naskah-body{display:none;padding:0 13px 13px;font-size:12.5px;line-height:1.7;color:#EDE6D3;max-height:220px;overflow-y:auto;white-space:pre-line}
+.naskah-box.open .naskah-body{display:block}
+.controls{padding:12px 14px calc(env(safe-area-inset-bottom) + 10px);display:flex;align-items:center;gap:10px;background:#061A13}
+.progress{flex:1;height:5px;background:rgba(255,255,255,.15);border-radius:100px;overflow:hidden}.bar{height:100%;background:var(--gold);transition:.3s}
+.btn{width:46px;height:46px;border-radius:50%;border:none;font-size:18px;cursor:pointer;flex-shrink:0}.btn-prev{background:#fff}.btn-next{background:var(--gold);font-weight:800}.btn-play{width:52px;height:52px;background:#fff;font-size:20px}
+.counter{font-size:12px;min-width:42px;text-align:center;color:#CFC8B0}
+.dots{display:flex;gap:5px;justify-content:center;padding:4px 0 0;background:#061A13}.dot{width:6px;height:6px;border-radius:100px;background:rgba(255,255,255,.25)}.dot.on{background:var(--gold);width:18px}
+.audio-progress{height:3px;background:rgba(255,255,255,.12);margin:0 14px;border-radius:100px;overflow:hidden;background:#061A13}.audio-progress i{display:block;height:100%;background:var(--gold2);width:0%}
+@media (orientation:landscape) and (max-height:500px){
+  .landing-inner{padding:14px 20px 14px}.logo{width:62px;height:62px}.brand2{font-size:22px}.motivasi{font-size:12px}
+  .slide{padding:16px 20px;justify-content:center}
+  .slide::after{background:linear-gradient(90deg,rgba(0,0,0,.05) 35%,rgba(6,26,19,.92) 78%)}
+  h2{font-size:24px}.arab{font-size:48px}
+}
+</style>
+</head>
+<body>
+
+<div id="landing">
+  <div class="landing-inner">
+    <img src="logo.png" class="logo" onclick="kePembuka()" title="Ke Halaman Pembuka">
+    <div class="brand">MODERN SPIRITUAL</div>
+    <div class="brand2">Sholat Adalah<br>Sekolah Karakter</div>
+    <div class="author">Oleh <b>Deka Sonjaya</b> • Modern Spiritual</div>
+    <div class="divider"></div>
+    <div class="motivasi">“Orang yang benar sholatnya tidak dilihat ketika takbir, <b>tetapi terlihat setelah salam.</b>”</div>
+    <div class="tagline"><span class="tag">✦ 12 Slide</span><span class="tag">🎧 Audio Otomatis</span><span class="tag">📖 Narasi</span></div>
+    <button class="btn-masuk" onclick="masuk()">▶ &nbsp; MASUK & MULAI MENDENGARKAN</button>
+    <div class="note">Gunakan <b>earphone</b> untuk pengalaman terbaik.</div>
+  </div>
+</div>
+
+<div id="app" class="hidden">
+  <header>
+    <div class="h-left" onclick="kePembuka()"><img src="logo.png" class="h-logo"><div class="h-title">DEKA SONJAYA<span>MODERN SPIRITUAL</span></div></div>
+    <div class="audio-badge"><span class="eq" id="eq"><i></i><i></i><i></i></span></div>
+  </header>
+  <div class="stage" id="stage"></div>
+  <div class="dots" id="dots"></div>
+  <div class="audio-progress"><i id="audioBar"></i></div>
+  <div class="controls">
+    <button class="btn btn-prev" onclick="go(-1)">←</button>
+    <button class="btn btn-play" id="playBtn" onclick="togglePlay()">⏸️</button>
+    <div class="progress"><div class="bar" id="bar"></div></div>
+    <div class="counter"><span id="cur2">1</span>/12</div>
+    <button class="btn btn-next" onclick="go(1)">→</button>
+  </div>
+  <audio id="audio" preload="auto" playsinline></audio>
+</div>
+
+<script>
+const DATA=[
+{kicker:"SLIDE 1 - JUDUL",title:"SHOLAT ADALAH SEKOLAH KARAKTER",bg:"slide1.jpg",narasi:`Assalamu'alaikum warahmatullahi wabarakatuh, selamat pagi dan salam sejahtera untuk kita semua.
+
+Terima kasih atas kesempatan yang diberikan. Perkenalkan, saya Deka Sonjaya.
+
+Saudaraku, hari ini kita akan membahas satu tema yang sangat dekat dengan keseharian kita. Judulnya sederhana, tapi maknanya dalam: Sholat adalah Sekolah Karakter.`},
+{kicker:"SLIDE 2 - KALIMAT KUNCI",title:"Orang yang benar sholatnya tidak dilihat ketika takbir, tetapi terlihat setelah salam.",bg:"slide2.jpg",narasi:`Saya ingin memulai dengan satu kalimat penting yang harus kita pegang sampai akhir.
+
+Orang yang benar sholatnya tidak dilihat ketika takbir, tetapi terlihat setelah salam.
+
+Saya ulangi, Saudaraku.
+
+Orang yang benar sholatnya tidak dilihat ketika takbir, tetapi terlihat setelah salam.
+
+Artinya, jangan menilai sholat seseorang dari bagaimana ia takbir. Jangan menilai dari bagaimana ia mengangkat tangannya, dari bagaimana ia berdiri, dari bagaimana ia rukuk dan sujud. Semua orang bisa takbir.
+
+Tapi nilai sholat seseorang dari apa yang terjadi setelah ia salam. Setelah ia selesai sholat, apakah ia menjadi lebih disiplin? Apakah ia menjadi lebih bertanggungjawab? Apakah ia menjadi lebih peduli? Apakah ia menjadi lebih dapat dipercaya? Apakah ia menjadi lebih rendah hati?
+
+Itulah ukuran sholat yang benar.`},
+{kicker:"SLIDE 3 - MASALAHNYA",title:"Kenapa karakter tidak berubah?",bg:"slide3.jpg",narasi:`Saya sering merenung. Kenapa ada orang yang rajin sholat, tapi karakternya tidak berubah? Kenapa ada orang yang sudah puluhan tahun sholat, tapi masih suka menunda janji, masih mudah marah, masih tidak bisa dipercaya, masih sombong?
+
+Apakah sholatnya yang gagal? Apakah ajarannya yang kurang? Atau ada yang salah dari cara kita memahami sholat?
+
+Jawabannya ada di satu ayat ini.
+
+Allah berfirman, Innasshalaata tanhaa 'anil fahsyaa'i wal munkar. Sesungguhnya sholat itu mencegah dari perbuatan keji dan mungkar. QS. Al-Ankabut: 45.
+
+Perhatikan baik-baik, Saudaraku. Allah tidak berkata sholat itu hanya menggugurkan kewajiban. Allah berkata sholat itu mencegah. Mencegah itu artinya mengubah. Mengubah perilaku, mengubah karakter, mengubah cara kita hidup.
+
+Jadi kalau karakter kita belum berubah, bukan sholatnya yang salah. Tapi kita yang belum mengambil pelajarannya.`},
+{kicker:"SLIDE 4 - ANALOGI ANAK 12 TAHUN",title:"Anak 12 Tahun Tidak Bisa Baca Tulis - Salah Siapa?",bg:"slide4.jpg",narasi:`Supaya mudah dipahami, saya beri contoh begini, Saudaraku.
+
+Bayangkan ada seorang anak. Usianya sudah 12 tahun. Ia sudah 6 tahun sekolah, dari kelas 1 sampai kelas 6 SD. Setiap hari ia berangkat sekolah, ia memakai seragam, ia duduk di kelas, ia mendengarkan guru, ia ikut ujian.
+
+Tapi setelah 6 tahun, anak ini tetap tidak bisa membaca, tetap tidak bisa menulis.
+
+Pertanyaan saya, Saudaraku, apakah sekolahnya yang salah?
+
+Apakah gurunya yang salah? Apakah buku pelajarannya yang salah? Apakah gedung sekolahnya yang salah?
+
+Bukan. Sekolahnya tidak salah. Kurikulumnya tidak salah. Gurunya sudah mengajar dengan benar.
+
+Yang salah adalah anak itu sendiri. Karena selama 6 tahun, ia hanya hadir di sekolah, tapi ia tidak pernah benar-benar belajar. Badannya ada di kelas, tapi pikirannya entah ke mana. Ia datang, ia duduk, ia pulang. Tapi ia tidak membawa pulang pelajarannya.
+
+Ia rajin hadir, tapi ia tidak pernah mendapatkan pelajaran dari sekolahnya.`},
+{kicker:"SLIDE 5 - ANALOGI SHOLAT & KHUSYUK",title:"Hadir Tapi Tidak Belajar",bg:"slide5.jpg",narasi:`Nah, Saudaraku, begitulah gambaran banyak dari kita dalam sholat.
+
+Ada orang yang sudah 20 tahun sholat, sudah 30 tahun sholat, bahkan sudah 40 tahun sholat. Setiap hari ia datang, ia takbir, ia rukuk, ia sujud, ia salam. Badannya ada di atas sajadah, tapi pikirannya entah ke mana. Mikirin pekerjaan, mikirin hutang, mikirin chat yang belum dibalas, mikirin nanti makan apa.
+
+Ia rajin sholat, tapi ia tidak pernah mendapatkan pelajaran dari sholatnya.
+
+Maka jangan heran kalau setelah puluhan tahun sholat, karakternya tidak berubah. Bukan karena sholatnya gagal. Tapi karena kita yang hadir, tapi tidak belajar.
+
+Dan itulah yang dimaksud dengan khusyuk.
+
+Allah berfirman, Qad aflahal mu'minuun, alladziina hum fii shalaatihim khaasyi'uun. Sungguh beruntung orang-orang yang beriman, yaitu orang yang khusyuk dalam sholatnya. QS. Al-Mu'minun: 1-2.
+
+Khusyuk itu bukan soal nangis, bukan soal merem, bukan soal lama sujudnya. Khusyuk itu ketika kita pulang dari sholat, kita membawa pulang pelajarannya.
+
+Kalau anak sekolah pulang membawa ilmu membaca dan menulis, maka orang yang sholat pulang membawa karakter.`},
+{kicker:"SLIDE 6 - JEMBATAN KE SALAM",title:"S A L A M",bg:"slide6.jpg",narasi:`Dan inilah buktinya. Sekali lagi, Saudaraku, pegang kalimat ini:
+
+Orang yang benar sholatnya tidak dilihat ketika takbir, tetapi terlihat setelah salam.
+
+Apa saja yang terlihat setelah salam itu? Saya rangkum dalam satu kata yang mudah kita ingat, mudah kita hafal, dan mudah kita amalkan: SALAM.`},
+{kicker:"SLIDE 7 - S",title:"S - Setia pada waktu - Disiplin",bg:"slide7.jpg",narasi:`Pertama, S. Setia pada waktu. Artinya Disiplin.
+
+Allah berfirman, Innasshalaata kaanat 'alal mu'miniina kitaabam mauquutaa. Sesungguhnya sholat itu adalah kewajiban yang ditentukan waktunya atas orang-orang yang beriman. QS. An-Nisa: 103.
+
+Perhatikan kata-katanya, Saudaraku. Kitaabam mauquutaa. Ditentukan waktunya. Tidak bisa seenaknya. Tidak bisa nanti saja. Tidak bisa kalau sempat saja. Ada waktunya.
+
+Dan Nabi Muhammad SAW bersabda, sholat pada waktunya adalah amalan yang paling dicintai Allah. HR. Bukhari Muslim.
+
+Saudaraku, adzan itu adalah janji. Ketika adzan berkumandang, itu artinya Allah sedang memanggil kita. Dan cara kita menjawab panggilan Allah itu menunjukkan bagaimana cara kita menjawab janji-janji kita kepada manusia.
+
+Kalau kita setia pada adzan, kita akan terbiasa setia pada janji. Kita akan terbiasa tepat waktu. Kita akan terbiasa disiplin. Karena disiplin itu dilatih 5 kali sehari, bukan sekali seminggu.
+
+Sebaliknya, kalau kita suka menunda sholat, kita akan terbiasa menunda janji. Kita akan terbiasa berkata, nanti saja, besok saja, sebentar lagi. Dan lama-lama, menunda itu menjadi karakter kita.
+
+Coba kita perhatikan. Orang yang sering telat sholat, biasanya juga sering telat janji. Orang yang sering buru-buru sholat di akhir waktu, biasanya juga sering buru-buru menyelesaikan pekerjaannya. Karena apa yang kita latih di dalam sholat, itulah yang akan terbawa ke luar sholat.
+
+Jadi, orang yang disiplin sholatnya, akan disiplin hidupnya. Disiplin itu bukan bakat. Disiplin itu hasil latihan. Dan latihan disiplin yang paling utama adalah sholat tepat waktu.`},
+{kicker:"SLIDE 8 - A PERTAMA",title:"A - Amanah - Bertanggungjawab",bg:"slide8.jpg",narasi:`Kedua, A. Amanah. Artinya Bertanggungjawab.
+
+Allah berfirman, Innallaaha ya'murukum an tu'addul amaanaati ilaa ahlihaa. Sesungguhnya Allah menyuruh kamu menyampaikan amanah kepada yang berhak menerimanya. QS. An-Nisa: 58.
+
+Nabi bersabda, tidak ada iman bagi yang tidak amanah. HR. Ahmad. Kalimatnya tegas, Saudaraku. Tidak ada iman, kalau tidak amanah.
+
+Saudaraku, sholat itu adalah amanah pertama. Dari takbir sampai salam, kita diminta menjaganya dengan sempurna. Tidak boleh dikurangi rakaatnya, tidak boleh ditinggal sujudnya, tidak boleh dilompati bacaannya. Semua harus ditunaikan dengan tanggung jawab.
+
+Dan sholat itu melatih kita untuk bertanggungjawab, bukan hanya saat dilihat orang, tapi juga saat tidak dilihat orang. Karena dalam sholat, kita tidak sedang dilihat manusia. Kita sedang dilihat Allah.
+
+Coba kita jujur pada diri sendiri. Kalau sholat yang hanya 5 menit saja kita khianati, kita tinggalkan, kita sepelekan, bagaimana kita bisa dipercaya memegang amanah jabatan, amanah harta, amanah keluarga?
+
+Bagaimana kita bisa dipercaya memegang uang perusahaan, kalau amanah sholat saja kita abaikan? Bagaimana kita bisa dipercaya memimpin orang lain, kalau memimpin diri sendiri untuk sholat saja kita gagal?
+
+Jadi, orang yang menjaga sholatnya sampai salam, dia sedang melatih dirinya menjadi orang yang bertanggungjawab. Orang yang amanah dalam sholatnya, akan amanah dalam hidupnya.`},
+{kicker:"SLIDE 9 - L",title:"L - Lembut hatinya - Peduli",bg:"slide9.jpg",narasi:`Ketiga, L. Lembut hatinya. Artinya Peduli.
+
+Allah berfirman kepada Nabi, Fa bimaa rahmatim minallaahi linta lahum. Maka berkat rahmat Allah, engkau berlaku lembut terhadap mereka. QS. Ali 'Imran: 159.
+
+Nabi bersabda, Allah itu Maha Lembut, dan mencintai kelembutan. HR. Bukhari Muslim.
+
+Saudaraku, perhatikan gerakan sholat kita. Semuanya lembut. Tidak ada gerakan yang kasar, tidak ada gerakan yang membentak, tidak ada gerakan yang menyakiti. Takbirnya lembut, rukuknya lembut, sujudnya lembut, salamnya lembut. Bahkan ucapan salam di akhir sholat itu adalah doa keselamatan untuk orang di kanan dan kiri kita.
+
+Itu bukan kebetulan, Saudaraku. Itu adalah pelajaran.
+
+Hati yang sering sholat akan menjadi tenang. Kenapa tenang? Karena dalam sholat, kita sedang berbicara dengan Allah. Kita sedang meletakkan semua beban kita. Kita sedang istirahat dari kebisingan dunia.
+
+Dan hati yang tenang, lama-lama akan menjadi peduli. Peduli itu bukan hanya sekadar kasihan. Peduli itu artinya kita peka. Kita peka melihat orang tua kita yang sudah lelah. Kita peka melihat pasangan kita yang sedang sedih. Kita peka melihat tetangga kita yang sedang kesulitan. Kita peka melihat sesama kita yang sedang membutuhkan.
+
+Orang yang hatinya keras, dia tidak akan peduli. Tapi orang yang hatinya lembut karena sholat, dia akan peduli tanpa diminta.
+
+Jadi, sholat yang benar akan melahirkan hati yang peduli. Peduli itu adalah bukti bahwa sholat kita sudah masuk ke hati, bukan hanya sampai di gerakan.`},
+{kicker:"SLIDE 10 - A KEDUA",title:"A - Akhlaqnya jujur - Dapat Dipercaya",bg:"slide10.jpg",narasi:`Keempat, A. Akhlaqnya jujur. Artinya Dapat Dipercaya.
+
+Allah berfirman, Yaa ayyuhalladziina aamanut taqullaaha wa kuunuu ma'ash shaadiqiin. Wahai orang-orang yang beriman, bertakwalah kepada Allah dan jadilah bersama orang-orang yang jujur. QS. At-Taubah: 119.
+
+Nabi bersabda, kejujuran membawa kepada kebaikan, dan kebaikan membawa kepada surga. HR. Bukhari Muslim.
+
+Saudaraku, dalam sholat kita tidak bisa pura-pura. Kita berdiri di hadapan Allah, tidak ada yang bisa kita sembunyikan. Kita tidak bisa berpura-pura khusyuk. Kita tidak bisa berpura-pura ikhlas. Allah tahu isi hati kita.
+
+Dalam sholat, kita dilatih untuk jujur sepenuhnya. Jujur dalam bacaan kita, jujur dalam gerakan kita, jujur dalam niat kita.
+
+Kalau di hadapan Allah saja kita berani jujur, masa di hadapan manusia kita berani bohong? Kalau di atas sajadah saja kita tidak berani berbohong, masa di luar sajadah kita berani menipu?
+
+Coba kita bayangkan, Saudaraku. Orang yang terbiasa jujur dalam sholatnya, dia akan malu untuk berbohong di luar sholat. Dia akan malu untuk memalsukan laporan. Dia akan malu untuk menipu pembeli. Dia akan malu untuk mengkhianati kepercayaan.
+
+Karena kejujuran itu bukan hanya soal kata-kata. Kejujuran itu adalah karakter.
+
+Jadi, orang yang jujur dalam sholatnya, dia akan menjadi orang yang dapat dipercaya dalam hidupnya. Dan orang yang dapat dipercaya, itu adalah harta yang paling mahal di zaman sekarang ini.`},
+{kicker:"SLIDE 11 - M",title:"M - Merendah di sujud - Rendah Hati",bg:"slide11.jpg",narasi:`Kelima, M. Merendah di sujud. Artinya Rendah Hati.
+
+Allah berfirman, Wa 'ibaadur rahmaanilladziina yamsyuuna 'alal ardhi haunaa. Dan hamba-hamba Tuhan Yang Maha Pengasih itu adalah orang-orang yang berjalan di bumi dengan rendah hati. QS. Al-Furqan: 63.
+
+Nabi bersabda, keadaan hamba paling dekat dengan Tuhannya adalah saat sujud. HR. Muslim.
+
+Saudaraku, sujud itu adalah posisi yang paling rendah. Dahi kita, yang selama ini kita jaga, yang selama ini kita banggakan, kita tempelkan ke lantai. Kita letakkan di tempat yang paling rendah. Kita akui bahwa kita ini kecil di hadapan Allah.
+
+Di atas sajadah tidak ada jabatan. Direktur dan satpam, sujudnya sama. Kaya dan miskin, dahinya menyentuh lantai yang sama. Tua dan muda, semuanya sama-sama merendah di hadapan Allah.
+
+Sehebat apa pun kita di luar, saat sujud kita diingatkan bahwa kita tetap hamba. Kita bukan pemilik segalanya. Kita hanya dititipi. Jabatan itu titipan. Harta itu titipan. Ilmu itu titipan. Semua bisa diambil kapan saja.
+
+Orang yang sering sujud, dia tidak akan mudah sombong. Karena setiap hari, 5 kali sehari, dia diingatkan untuk merendah. Dia diingatkan bahwa dia tidak ada apa-apanya tanpa Allah.
+
+Jadi, orang yang sering sujud, dia akan menjadi orang yang rendah hati. Rendah hati itu bukan merendahkan diri. Rendah hati itu adalah sadar bahwa semua yang kita miliki adalah dari Allah.`},
+{kicker:"SLIDE 12 - PENUTUP",title:"Orang yang benar sholatnya tidak dilihat ketika takbir, tetapi terlihat setelah salam.",bg:"slide12.jpg",narasi:`Saudaraku, mari kita simpulkan. Kita kembali ke kalimat yang tadi saya sampaikan di awal.
+
+Orang yang benar sholatnya tidak dilihat ketika takbir, tetapi terlihat setelah salam.
+
+Setelah salam, apa yang terlihat?
+
+S, Setia pada waktu, artinya Disiplin.
+A, Amanah, artinya Bertanggungjawab.
+L, Lembut hatinya, artinya Peduli.
+A, Akhlaqnya jujur, artinya Dapat Dipercaya.
+M, Merendah di sujud, artinya Rendah Hati.
+
+Semoga sholat kita tidak hanya menjadi kewajiban yang ditunaikan, tapi juga pelajaran yang menghidupkan karakter kita. Semoga setelah ini, kita tidak hanya rajin hadir di atas sajadah, tapi juga rajin membawa pulang pelajarannya.
+
+Terima kasih atas perhatian Saudaraku semua. Saya Deka Sonjaya, mohon maaf atas segala kekurangan.
+
+Wassalamu'alaikum warahmatullahi wabarakatuh.`}
+];
+let cur=0, userPaused=false;
+const stage=document.getElementById('stage'), dots=document.getElementById('dots'), audio=document.getElementById('audio'), playBtn=document.getElementById('playBtn'), eq=document.getElementById('eq');
+DATA.forEach((d,i)=>{
+  let el=document.createElement('div');
+  el.className='slide'; el.style.backgroundImage=`url('${d.bg}')`;
+  let arab = i==5 ? `<div class="arab">سَلَام</div>` : '';
+  el.innerHTML=`<div class="content"><div class="kicker">${d.kicker}</div><h2>${d.title}</h2>${arab}
+  <div class="naskah-box" onclick="this.classList.toggle('open')"><div class="naskah-head"><span>📖 Narasi</span><span>▾</span></div><div class="naskah-body">${d.narasi}</div></div></div>`;
+  stage.appendChild(el);
+  let dot=document.createElement('div'); dot.className='dot'+(i==0?' on':''); dot.onclick=()=>show(i); dots.appendChild(dot);
+});
+function show(n){
+  cur=(n+DATA.length)%DATA.length;
+  document.querySelectorAll('.slide').forEach((s,i)=>s.classList.toggle('active',i==cur));
+  document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('on',i==cur));
+  document.getElementById('bar').style.width=((cur+1)/DATA.length*100)+'%';
+  document.getElementById('cur2').textContent=cur+1;
+  audio.src=`slide${cur+1}.mp3`;
+  eq.classList.remove('paused');
+  if(!userPaused){ audio.play().catch(()=>{ eq.classList.add('paused'); }); }
+}
+function go(d){ userPaused=false; playBtn.textContent='⏸️'; show(cur+d); }
+function togglePlay(){
+  if(audio.paused){ audio.play(); userPaused=false; playBtn.textContent='⏸️'; eq.classList.remove('paused'); }
+  else{ audio.pause(); userPaused=true; playBtn.textContent='▶️'; eq.classList.add('paused'); }
+}
+audio.addEventListener('ended', ()=>{ if(cur < DATA.length-1){ show(cur+1); } else { eq.classList.add('paused'); playBtn.textContent='▶️'; } });
+audio.addEventListener('timeupdate', ()=>{ if(audio.duration) document.getElementById('audioBar').style.width=(audio.currentTime/audio.duration*100)+'%'; });
+let sx=0; stage.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+stage.addEventListener('touchend',e=>{let dx=e.changedTouches[0].clientX-sx; if(dx<-50)go(1); if(dx>50)go(-1)},{passive:true});
+document.addEventListener('keydown',e=>{if(e.key=='ArrowRight')go(1); if(e.key=='ArrowLeft')go(-1)});
+function masuk(){
+  document.getElementById('landing').classList.add('hidden');
+  document.getElementById('app').classList.remove('hidden');
+  if(document.documentElement.requestFullscreen){ document.documentElement.requestFullscreen().catch(()=>{}); }
+  show(0);
+}
+function kePembuka(){
+  audio.pause(); userPaused=true; playBtn.textContent='▶️'; eq.classList.add('paused');
+  document.getElementById('app').classList.add('hidden');
+  document.getElementById('landing').classList.remove('hidden');
+  if(document.fullscreenElement){ document.exitFullscreen().catch(()=>{}); }
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
